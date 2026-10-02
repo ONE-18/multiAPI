@@ -1,0 +1,13 @@
+{
+  "wifi_ssid": "<SSID>",
+  "wifi_pass": "<PASSWORD>",
+  "config_url": "<CONFIG_URL>",
+  "macs": [
+    "<MAC_ADDRESS_1>",
+    "<MAC_ADDRESS_2>"
+  ],
+  "wait_hour": 0,
+  "wait_minute": 0,
+  "timezone": "<YOUR_TIMEZONE>",
+  "ntp_server": "pool.ntp.org"
+}

@@ -1,0 +1,11 @@
+
+services:
+  wol-orders:
+    container_name: wol-orders
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      CONFIG_JSON_PATH: /app/endpoints
+    ports:
+      - "8000:8000"
