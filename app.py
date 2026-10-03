@@ -72,5 +72,8 @@ def reload_endpoints() -> dict[str, str]:
         raise HTTPException(status_code=500, detail=str(error)) from error
     return {"status": "reloaded"}
 
+@app.get("/list")
+def list_endpoints() -> list[dict[str, str]]:
+    return [{"path": route.path, "method": route.methods[0]} for route in dynamic_routes]
 
 register_file_endpoints()

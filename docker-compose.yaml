@@ -1,7 +1,7 @@
 
 services:
-  wol-orders:
-    container_name: wol-orders
+  multi-api:
+    container_name: multi-api
     build:
       context: .
       dockerfile: Dockerfile
