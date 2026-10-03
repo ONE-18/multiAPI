@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     environment:
       CONFIG_JSON_PATH: /app/endpoints
+      LOG_LEVEL: INFO
     volumes:
       - ./endpoints:/app/endpoints:ro
     ports:
