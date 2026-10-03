@@ -20,13 +20,21 @@ def read_file_endpoints() -> list[tuple[str, str, Any]]:
     for file_path in sorted(path for path in CONFIG_PATH.rglob("*") if path.is_file()):
         relative_path = file_path.relative_to(CONFIG_PATH)
         if len(relative_path.parts) < 2:
-            raise ValueError(f"{file_path}: file must be inside an HTTP method directory")
+            # raise ValueError(
+            #     f"{file_path}: file must be inside an HTTP method directory"
+            # )
+            print(f"Skipping {file_path}: file must be inside an HTTP method directory")
+            continue
 
         method = relative_path.parts[0].upper()
         if method not in SUPPORTED_METHODS:
             raise ValueError(f"{file_path}: unsupported HTTP method {method!r}")
 
-        route_path = "/" + Path(*relative_path.parts[1:]).as_posix()
+        route_path = "/" + Path(
+            *relative_path.parts[1:]
+        ).with_suffix("")
+
+        route_path = route_path.as_posix()
         with file_path.open(encoding="utf-8") as endpoint_file:
             response_body = json.load(endpoint_file)
         endpoints.append((route_path, method, response_body))
