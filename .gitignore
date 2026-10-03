@@ -1,1 +1,2 @@
 endpoints/**/*.json
+__pycache__/*

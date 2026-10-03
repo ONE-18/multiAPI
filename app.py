@@ -32,9 +32,7 @@ def read_file_endpoints() -> list[tuple[str, str, Any]]:
 
         route_path = "/" + Path(
             *relative_path.parts[1:]
-        ).with_suffix("")
-
-        route_path = route_path.as_posix()
+        ).with_suffix("").as_posix()
         with file_path.open(encoding="utf-8") as endpoint_file:
             response_body = json.load(endpoint_file)
         endpoints.append((route_path, method, response_body))
