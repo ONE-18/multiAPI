@@ -7,5 +7,7 @@ services:
       dockerfile: Dockerfile
     environment:
       CONFIG_JSON_PATH: /app/endpoints
+    volumes:
+      - ./endpoints:/app/endpoints:ro
     ports:
       - "8000:8000"
